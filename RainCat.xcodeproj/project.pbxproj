@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3298B661719177F69CCFC170 /* Pods_RainCat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 274CA3C8ADD95D68FEB2E42A /* Pods_RainCat.framework */; };
 		6E078A411DA908FC00A97A65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E078A401DA908FC00A97A65 /* AppDelegate.swift */; };
 		6E078A431DA908FC00A97A65 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6E078A421DA908FC00A97A65 /* GameScene.sks */; };
 		6E078A451DA908FC00A97A65 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6E078A441DA908FC00A97A65 /* Actions.sks */; };
@@ -15,9 +16,31 @@
 		6E078A4C1DA908FC00A97A65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E078A4A1DA908FC00A97A65 /* Main.storyboard */; };
 		6E078A4E1DA908FC00A97A65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E078A4D1DA908FC00A97A65 /* Assets.xcassets */; };
 		6E078A511DA908FC00A97A65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E078A4F1DA908FC00A97A65 /* LaunchScreen.storyboard */; };
+		6E3633551DB9EAA6002C6AF4 /* UmbrellaSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3633541DB9EAA6002C6AF4 /* UmbrellaSprite.swift */; };
+		6E6841F31DBB962B00430C7C /* cat_meow_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E6841EC1DBB962B00430C7C /* cat_meow_1.mp3 */; };
+		6E6841F41DBB962B00430C7C /* cat_meow_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E6841ED1DBB962B00430C7C /* cat_meow_2.mp3 */; };
+		6E6841F51DBB962B00430C7C /* cat_meow_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E6841EE1DBB962B00430C7C /* cat_meow_3.mp3 */; };
+		6E6841F61DBB962B00430C7C /* cat_meow_4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E6841EF1DBB962B00430C7C /* cat_meow_4.mp3 */; };
+		6E6841F71DBB962B00430C7C /* cat_meow_5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6E6841F01DBB962B00430C7C /* cat_meow_5.wav */; };
+		6E6841F81DBB962B00430C7C /* cat_meow_6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6E6841F11DBB962B00430C7C /* cat_meow_6.wav */; };
+		6E6841F91DBB962B00430C7C /* cat_meow_7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E6841F21DBB962B00430C7C /* cat_meow_7.mp3 */; };
+		6E6841FF1DBB98C400430C7C /* bensound-clearday.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E6841FB1DBB98C400430C7C /* bensound-clearday.mp3 */; };
+		6E6842001DBB98C400430C7C /* bensound-jazzcomedy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E6841FC1DBB98C400430C7C /* bensound-jazzcomedy.mp3 */; };
+		6E6842011DBB98C400430C7C /* bensound-jazzyfrenchy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E6841FD1DBB98C400430C7C /* bensound-jazzyfrenchy.mp3 */; };
+		6E6842021DBB98C400430C7C /* bensound-littleidea.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E6841FE1DBB98C400430C7C /* bensound-littleidea.mp3 */; };
+		6E6842041DBB98F300430C7C /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6842031DBB98F300430C7C /* SoundManager.swift */; };
+		6E6842071DBB9E0000430C7C /* Pixel Digivolve.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6E6842061DBB9E0000430C7C /* Pixel Digivolve.otf */; };
+		6E6842091DBB9F4C00430C7C /* HubNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6842081DBB9F4C00430C7C /* HubNode.swift */; };
+		6E68420B1DBBA1DC00430C7C /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E68420A1DBBA1DC00430C7C /* MenuScene.swift */; };
+		6E7216A11DBA26FD002AADF0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7216A01DBA26FD002AADF0 /* Constants.swift */; };
+		6E7216A31DBA3162002AADF0 /* CatSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7216A21DBA3162002AADF0 /* CatSprite.swift */; };
+		6E868D641DBA4499009A1767 /* FoodSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E868D631DBA4499009A1767 /* FoodSprite.swift */; };
+		6EABD09D1DD2AAB8005CE4F0 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EABD09C1DD2AAB8005CE4F0 /* Setting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		225356214C45BE34F12493E9 /* Pods-RainCat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RainCat.release.xcconfig"; path = "Pods/Target Support Files/Pods-RainCat/Pods-RainCat.release.xcconfig"; sourceTree = "<group>"; };
+		274CA3C8ADD95D68FEB2E42A /* Pods_RainCat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RainCat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E078A3D1DA908FC00A97A65 /* RainCat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainCat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E078A401DA908FC00A97A65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E078A421DA908FC00A97A65 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -28,6 +51,27 @@
 		6E078A4D1DA908FC00A97A65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E078A501DA908FC00A97A65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E078A521DA908FC00A97A65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E3633541DB9EAA6002C6AF4 /* UmbrellaSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UmbrellaSprite.swift; sourceTree = "<group>"; };
+		6E6841EC1DBB962B00430C7C /* cat_meow_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = cat_meow_1.mp3; path = SFX/cat_meow_1.mp3; sourceTree = "<group>"; };
+		6E6841ED1DBB962B00430C7C /* cat_meow_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = cat_meow_2.mp3; path = SFX/cat_meow_2.mp3; sourceTree = "<group>"; };
+		6E6841EE1DBB962B00430C7C /* cat_meow_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = cat_meow_3.mp3; path = SFX/cat_meow_3.mp3; sourceTree = "<group>"; };
+		6E6841EF1DBB962B00430C7C /* cat_meow_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = cat_meow_4.mp3; path = SFX/cat_meow_4.mp3; sourceTree = "<group>"; };
+		6E6841F01DBB962B00430C7C /* cat_meow_5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = cat_meow_5.wav; path = SFX/cat_meow_5.wav; sourceTree = "<group>"; };
+		6E6841F11DBB962B00430C7C /* cat_meow_6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = cat_meow_6.wav; path = SFX/cat_meow_6.wav; sourceTree = "<group>"; };
+		6E6841F21DBB962B00430C7C /* cat_meow_7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = cat_meow_7.mp3; path = SFX/cat_meow_7.mp3; sourceTree = "<group>"; };
+		6E6841FB1DBB98C400430C7C /* bensound-clearday.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bensound-clearday.mp3"; path = "Music/bensound-clearday.mp3"; sourceTree = "<group>"; };
+		6E6841FC1DBB98C400430C7C /* bensound-jazzcomedy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bensound-jazzcomedy.mp3"; path = "Music/bensound-jazzcomedy.mp3"; sourceTree = "<group>"; };
+		6E6841FD1DBB98C400430C7C /* bensound-jazzyfrenchy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bensound-jazzyfrenchy.mp3"; path = "Music/bensound-jazzyfrenchy.mp3"; sourceTree = "<group>"; };
+		6E6841FE1DBB98C400430C7C /* bensound-littleidea.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bensound-littleidea.mp3"; path = "Music/bensound-littleidea.mp3"; sourceTree = "<group>"; };
+		6E6842031DBB98F300430C7C /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		6E6842061DBB9E0000430C7C /* Pixel Digivolve.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pixel Digivolve.otf"; path = "Fonts/Pixel Digivolve.otf"; sourceTree = "<group>"; };
+		6E6842081DBB9F4C00430C7C /* HubNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HubNode.swift; sourceTree = "<group>"; };
+		6E68420A1DBBA1DC00430C7C /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		6E7216A01DBA26FD002AADF0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6E7216A21DBA3162002AADF0 /* CatSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatSprite.swift; sourceTree = "<group>"; };
+		6E868D631DBA4499009A1767 /* FoodSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodSprite.swift; sourceTree = "<group>"; };
+		6EABD09C1DD2AAB8005CE4F0 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		9362C6F405FA43D51FC4727B /* Pods-RainCat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RainCat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RainCat/Pods-RainCat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +79,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3298B661719177F69CCFC170 /* Pods_RainCat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5549C06A692929189137F5AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9362C6F405FA43D51FC4727B /* Pods-RainCat.debug.xcconfig */,
+				225356214C45BE34F12493E9 /* Pods-RainCat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6E078A341DA908FC00A97A65 = {
 			isa = PBXGroup;
 			children = (
 				6E078A3F1DA908FC00A97A65 /* RainCat */,
 				6E078A3E1DA908FC00A97A65 /* Products */,
+				5549C06A692929189137F5AA /* Pods */,
+				924292A55184C701D832A7A7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,16 +117,100 @@
 			isa = PBXGroup;
 			children = (
 				6E078A401DA908FC00A97A65 /* AppDelegate.swift */,
-				6E078A421DA908FC00A97A65 /* GameScene.sks */,
-				6E078A441DA908FC00A97A65 /* Actions.sks */,
+				6E72169F1DBA267B002AADF0 /* Support */,
+				6E72169E1DBA266B002AADF0 /* ViewControllers */,
+				6E72169D1DBA2657002AADF0 /* Scenes */,
+				6E3633531DB9EA75002C6AF4 /* Sprites */,
+			);
+			path = RainCat;
+			sourceTree = "<group>";
+		};
+		6E3633531DB9EA75002C6AF4 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				6E3633541DB9EAA6002C6AF4 /* UmbrellaSprite.swift */,
+				6E7216A21DBA3162002AADF0 /* CatSprite.swift */,
+				6E868D631DBA4499009A1767 /* FoodSprite.swift */,
+				6E6842081DBB9F4C00430C7C /* HubNode.swift */,
+			);
+			name = Sprites;
+			sourceTree = "<group>";
+		};
+		6E6841EB1DBB961D00430C7C /* SFX */ = {
+			isa = PBXGroup;
+			children = (
+				6E6841EC1DBB962B00430C7C /* cat_meow_1.mp3 */,
+				6E6841ED1DBB962B00430C7C /* cat_meow_2.mp3 */,
+				6E6841EE1DBB962B00430C7C /* cat_meow_3.mp3 */,
+				6E6841EF1DBB962B00430C7C /* cat_meow_4.mp3 */,
+				6E6841F01DBB962B00430C7C /* cat_meow_5.wav */,
+				6E6841F11DBB962B00430C7C /* cat_meow_6.wav */,
+				6E6841F21DBB962B00430C7C /* cat_meow_7.mp3 */,
+			);
+			name = SFX;
+			sourceTree = "<group>";
+		};
+		6E6841FA1DBB98B300430C7C /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				6E6841FB1DBB98C400430C7C /* bensound-clearday.mp3 */,
+				6E6841FC1DBB98C400430C7C /* bensound-jazzcomedy.mp3 */,
+				6E6841FD1DBB98C400430C7C /* bensound-jazzyfrenchy.mp3 */,
+				6E6841FE1DBB98C400430C7C /* bensound-littleidea.mp3 */,
+			);
+			name = Music;
+			sourceTree = "<group>";
+		};
+		6E6842051DBB9DE800430C7C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6E6842061DBB9E0000430C7C /* Pixel Digivolve.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		6E72169D1DBA2657002AADF0 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
 				6E078A461DA908FC00A97A65 /* GameScene.swift */,
+				6E68420A1DBBA1DC00430C7C /* MenuScene.swift */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		6E72169E1DBA266B002AADF0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
 				6E078A481DA908FC00A97A65 /* GameViewController.swift */,
+				6EABD09C1DD2AAB8005CE4F0 /* Setting.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6E72169F1DBA267B002AADF0 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				6E6842051DBB9DE800430C7C /* Fonts */,
+				6E6841FA1DBB98B300430C7C /* Music */,
+				6E6841EB1DBB961D00430C7C /* SFX */,
+				6E078A421DA908FC00A97A65 /* GameScene.sks */,
+				6E7216A01DBA26FD002AADF0 /* Constants.swift */,
+				6E078A441DA908FC00A97A65 /* Actions.sks */,
 				6E078A4A1DA908FC00A97A65 /* Main.storyboard */,
 				6E078A4D1DA908FC00A97A65 /* Assets.xcassets */,
 				6E078A4F1DA908FC00A97A65 /* LaunchScreen.storyboard */,
 				6E078A521DA908FC00A97A65 /* Info.plist */,
+				6E6842031DBB98F300430C7C /* SoundManager.swift */,
 			);
-			path = RainCat;
+			name = Support;
+			sourceTree = "<group>";
+		};
+		924292A55184C701D832A7A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				274CA3C8ADD95D68FEB2E42A /* Pods_RainCat.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,9 +220,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6E078A551DA908FC00A97A65 /* Build configuration list for PBXNativeTarget "RainCat" */;
 			buildPhases = (
+				50D8A732E4866BBEA52B2A2C /* [CP] Check Pods Manifest.lock */,
 				6E078A391DA908FC00A97A65 /* Sources */,
 				6E078A3A1DA908FC00A97A65 /* Frameworks */,
 				6E078A3B1DA908FC00A97A65 /* Resources */,
+				EDEC3EA2C327ED0D87E8793B /* [CP] Embed Pods Frameworks */,
+				7898470EE29B898B5DB477BD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -134,22 +277,90 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E078A4C1DA908FC00A97A65 /* Main.storyboard in Resources */,
+				6E6842021DBB98C400430C7C /* bensound-littleidea.mp3 in Resources */,
+				6E6841F41DBB962B00430C7C /* cat_meow_2.mp3 in Resources */,
 				6E078A431DA908FC00A97A65 /* GameScene.sks in Resources */,
 				6E078A4E1DA908FC00A97A65 /* Assets.xcassets in Resources */,
+				6E6842071DBB9E0000430C7C /* Pixel Digivolve.otf in Resources */,
+				6E6842001DBB98C400430C7C /* bensound-jazzcomedy.mp3 in Resources */,
+				6E6841F81DBB962B00430C7C /* cat_meow_6.wav in Resources */,
+				6E6841F91DBB962B00430C7C /* cat_meow_7.mp3 in Resources */,
 				6E078A511DA908FC00A97A65 /* LaunchScreen.storyboard in Resources */,
+				6E6841F51DBB962B00430C7C /* cat_meow_3.mp3 in Resources */,
 				6E078A451DA908FC00A97A65 /* Actions.sks in Resources */,
+				6E6842011DBB98C400430C7C /* bensound-jazzyfrenchy.mp3 in Resources */,
+				6E6841FF1DBB98C400430C7C /* bensound-clearday.mp3 in Resources */,
+				6E6841F71DBB962B00430C7C /* cat_meow_5.wav in Resources */,
+				6E6841F31DBB962B00430C7C /* cat_meow_1.mp3 in Resources */,
+				6E6841F61DBB962B00430C7C /* cat_meow_4.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50D8A732E4866BBEA52B2A2C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7898470EE29B898B5DB477BD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RainCat/Pods-RainCat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EDEC3EA2C327ED0D87E8793B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RainCat/Pods-RainCat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6E078A391DA908FC00A97A65 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E7216A11DBA26FD002AADF0 /* Constants.swift in Sources */,
+				6E6842091DBB9F4C00430C7C /* HubNode.swift in Sources */,
+				6E6842041DBB98F300430C7C /* SoundManager.swift in Sources */,
 				6E078A471DA908FC00A97A65 /* GameScene.swift in Sources */,
 				6E078A491DA908FC00A97A65 /* GameViewController.swift in Sources */,
+				6E868D641DBA4499009A1767 /* FoodSprite.swift in Sources */,
+				6EABD09D1DD2AAB8005CE4F0 /* Setting.swift in Sources */,
+				6E7216A31DBA3162002AADF0 /* CatSprite.swift in Sources */,
+				6E68420B1DBBA1DC00430C7C /* MenuScene.swift in Sources */,
+				6E3633551DB9EAA6002C6AF4 /* UmbrellaSprite.swift in Sources */,
 				6E078A411DA908FC00A97A65 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +405,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -216,7 +428,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -244,6 +456,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -260,7 +473,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -271,29 +484,35 @@
 		};
 		6E078A561DA908FC00A97A65 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9362C6F405FA43D51FC4727B /* Pods-RainCat.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 88RR7V473K;
 				INFOPLIST_FILE = RainCat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuanvu.RainCat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		6E078A571DA908FC00A97A65 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 225356214C45BE34F12493E9 /* Pods-RainCat.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 88RR7V473K;
 				INFOPLIST_FILE = RainCat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuanvu.RainCat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -316,6 +535,7 @@
 				6E078A571DA908FC00A97A65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

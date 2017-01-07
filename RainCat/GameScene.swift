@@ -9,85 +9,158 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
-    
-    var entities = [GKEntity]()
-    var graphs = [String : GKGraph]()
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var lastUpdateTime : TimeInterval = 0
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
+    private var currentRainDropSpawnTime: TimeInterval = 0
+    private var rainDropSpawnRate: TimeInterval = 0.5
+    private let random = GKRandomSource()
+    
+    private let foodEdgeMargin: CGFloat = 75.0
+    private var cat: CatSprite!
+    private var food: FoodSprite!
+    private let hud = HudNode()
+    
+    private let umbrella = UmbrellaSprite.newInstance()
+    private let rainDropTexture = SKTexture(imageNamed: "rain_drop")
     
     override func sceneDidLoad() {
+        hud.setup(size: size)
+        
+        hud.quitButtonAction = {
+            let transition = SKTransition.reveal(with: .up, duration: 0.75)
+            
+            let gameScene = MenuScene(size: self.size)
+            gameScene.scaleMode = self.scaleMode
+            
+            self.view?.presentScene(gameScene, transition: transition)
+            
+            self.hud.quitButtonAction = nil
+        }
+        
+        addChild(hud)
+        
+        var worldFrame = frame
+        worldFrame.origin.x -= 100
+        worldFrame.origin.y -= 100
+        worldFrame.size.width += 200
+        worldFrame.size.height += 200
+        
+        self.physicsBody = SKPhysicsBody(edgeLoopFrom: worldFrame)
+        self.physicsWorld.contactDelegate = self
+        self.physicsBody?.categoryBitMask = WorldFrameCategory
 
         self.lastUpdateTime = 0
         
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
+        let floorNode = SKShapeNode(rectOf: CGSize(width: size.width, height: 5))
+        floorNode.position = CGPoint(x: size.width / 2, y: 50)
+        floorNode.fillColor = SKColor.red
+        floorNode.physicsBody = SKPhysicsBody(edgeFrom: CGPoint(x: -size.width / 2, y: 0), to: CGPoint(x: size.width, y: 0))
+        
+        floorNode.physicsBody?.categoryBitMask = FloorCategory
+        floorNode.physicsBody?.restitution = 0.3
+        floorNode.physicsBody?.contactTestBitMask = RainDropCategory
+        
+        addChild(floorNode)
+        
+        let rainDrop = SKShapeNode(rectOf: CGSize(width: 20, height: 20))
+        rainDrop.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        rainDrop.fillColor = SKColor.blue
+        rainDrop.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 20, height: 20))
+        addChild(rainDrop)
+        
+        umbrella.updatePosition(point: CGPoint(x: frame.midX, y: frame.midY))
+        addChild(umbrella)
+        
+        spawnCat()
+        spawnFood()
+        
+        let background = SKSpriteNode(imageNamed: "background")
+        background.position = CGPoint(x: frame.midX, y: frame.midY)
+        background.zPosition = 0
+        
+        addChild(background)
+        
+        
+    }
+    
+    // Let The Rain Drop
+    func spawnRainDrop() {
+        let rainDrop = SKSpriteNode(texture: rainDropTexture)
+        rainDrop.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        rainDrop.zPosition = 2
+        rainDrop.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 20, height: 20))
+        rainDrop.physicsBody?.categoryBitMask = RainDropCategory
+        rainDrop.physicsBody?.contactTestBitMask = WorldFrameCategory
+        rainDrop.physicsBody?.density = 0.5
+        
+        let randomPosition = abs(CGFloat(random.nextInt()).truncatingRemainder(dividingBy: size.width))
+        rainDrop.position = CGPoint(x: randomPosition, y: size.height)
+        
+        addChild(rainDrop)
+    }
+    
+    //Let Spawn The Cat
+    func spawnCat() {
+        if let currentCat = cat, children.contains(currentCat) {
+            cat.removeFromParent()
+            cat.removeAllActions()
+            cat.physicsBody = nil
         }
         
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
+        cat = CatSprite.newInstance()
+        cat.position = CGPoint(x: umbrella.position.x, y: umbrella.position.y - 30)
         
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(M_PI), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
+        addChild(cat)
+        hud.resetPoints()
     }
     
-    
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
+    //Let Spawn Food
+    func spawnFood() {
+        food = FoodSprite.newInstance()
+        var randomPosition : CGFloat = CGFloat(random.nextInt())
+        randomPosition = randomPosition.truncatingRemainder(dividingBy: size.width - foodEdgeMargin * 2)
+        randomPosition = CGFloat(abs(randomPosition))
+        randomPosition += foodEdgeMargin
+        
+        food.position = CGPoint(x: randomPosition, y: size.height)
+        
+        addChild(food)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        }
+        let touchPoint = touches.first?.location(in: self)
         
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+        if let point = touchPoint {
+            hud.touchBeganAtPoint(point: point)
+            
+            if !hud.quitButtonPressed {
+                umbrella.setDestination(destination: point)
+            }
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
+        let touchPoint = touches.first?.location(in: self)
+        
+        if let point = touchPoint {
+            hud.touchMovedToPoint(point: point)
+            
+            if !hud.quitButtonPressed {
+                umbrella.setDestination(destination: point)
+            }
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+        let touchPoint = touches.first?.location(in: self)
+        
+        if let point = touchPoint {
+            hud.touchEndedAtPoint(point: point)
+        }
     }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
@@ -99,12 +172,99 @@ class GameScene: SKScene {
         
         // Calculate time since last update
         let dt = currentTime - self.lastUpdateTime
+        self.lastUpdateTime = currentTime
         
-        // Update entities
-        for entity in self.entities {
-            entity.update(deltaTime: dt)
+        currentRainDropSpawnTime += dt
+        
+        if currentRainDropSpawnTime > rainDropSpawnRate {
+            currentRainDropSpawnTime = 0
+            spawnRainDrop()
         }
         
-        self.lastUpdateTime = currentTime
+        umbrella.update(deltaTime: dt)
+        cat.update(deltaTime: dt, foodLocation: food.position)
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        if contact.bodyA.categoryBitMask == RainDropCategory {
+            contact.bodyA.node?.physicsBody?.collisionBitMask = 0
+        } else if contact.bodyB.categoryBitMask == RainDropCategory {
+            contact.bodyB.node?.physicsBody?.collisionBitMask = 0
+        }
+        
+        if contact.bodyA.categoryBitMask == CatCategory || contact.bodyB.categoryBitMask == CatCategory {
+            handleCatCollision(contact: contact)
+            
+            return
+        }
+        
+        if contact.bodyA.categoryBitMask == FoodCategory || contact.bodyB.categoryBitMask == FoodCategory {
+            handleFoodHit(contact: contact)
+            
+            return
+        }
+        
+        if contact.bodyA.categoryBitMask == WorldFrameCategory {
+            contact.bodyB.node?.removeFromParent()
+            contact.bodyB.node?.physicsBody = nil
+            contact.bodyB.node?.removeAllActions()
+        } else if contact.bodyB.categoryBitMask == WorldFrameCategory {
+            contact.bodyA.node?.removeFromParent()
+            contact.bodyA.node?.physicsBody = nil
+            contact.bodyA.node?.removeAllActions()
+        }
+    }
+    
+    //When The Cat Is Hitted
+    func handleCatCollision(contact: SKPhysicsContact) {
+        var otherBody: SKPhysicsBody
+        
+        if contact.bodyA.categoryBitMask == CatCategory {
+            otherBody = contact.bodyB
+        } else {
+            otherBody = contact.bodyA
+        }
+        
+        switch otherBody.categoryBitMask {
+        case RainDropCategory:
+            cat.hitByRain()
+            hud.resetPoints()
+        case WorldFrameCategory:
+            spawnCat()
+        case FoodCategory:
+            otherBody.node?.removeFromParent()
+            otherBody.node?.physicsBody = nil
+            spawnFood()
+            hud.addPoint()
+        default:
+            print("Something hit The Cat!")
+        }
+    }
+    
+    func handleFoodHit(contact: SKPhysicsContact) {
+        var otherBody : SKPhysicsBody
+        var foodBody : SKPhysicsBody
+        
+        if(contact.bodyA.categoryBitMask == FoodCategory) {
+            otherBody = contact.bodyB
+            foodBody = contact.bodyA
+        } else {
+            otherBody = contact.bodyA
+            foodBody = contact.bodyB
+        }
+        
+        switch otherBody.categoryBitMask {
+        case CatCategory:
+            //TODO increment points
+            hud.addPoint()
+            fallthrough
+        case WorldFrameCategory:
+            foodBody.node?.removeFromParent()
+            foodBody.node?.physicsBody = nil
+            
+            spawnFood()
+        default:
+            print("Something else touched the food")
+        }
     }
 }
